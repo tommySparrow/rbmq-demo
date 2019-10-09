@@ -5,9 +5,11 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.QueueingConsumer;
 
-public class Recv {
-
-    private final static String QUEUE_NAME = "test_queue_fanout1";
+/**
+ * 一个消费者队列可以有多个消费者实例，只有其中一个消费者实例会消费
+ */
+public class Recv3 {
+    private final static String QUEUE_NAME = "test_queue_fanout2";
 
     private final static String EXCHANGE_NAME = "test_exchange_fanout";
 
@@ -35,11 +37,10 @@ public class Recv {
         while (true) {
             QueueingConsumer.Delivery delivery = consumer.nextDelivery();
             String message = new String(delivery.getBody());
-            System.out.println(" [Recv] Received '" + message + "'");
+            System.out.println(" [Recv2] Received '" + message + "'");
             Thread.sleep(10);
 
             channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
         }
     }
-
 }

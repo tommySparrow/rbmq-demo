@@ -5,8 +5,11 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.QueueingConsumer;
 
+/**
+ * 一个消费者队列可以有多个消费者实例，只有其中一个消费者实例会消费
+ */
 public class Recv2 {
-    private final static String QUEUE_NAME = "test_queue_work2";
+    private final static String QUEUE_NAME = "test_queue_fanout2";
 
     private final static String EXCHANGE_NAME = "test_exchange_fanout";
 

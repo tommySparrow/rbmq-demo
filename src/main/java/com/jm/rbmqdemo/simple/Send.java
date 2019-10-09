@@ -15,7 +15,7 @@ public class Send {
         // 从连接中创建通道
        Channel channel = connection.createChannel();
 
-        // 声明（创建）队列
+        // 声明（创建）队列 :durable-持久的;exclusive-是否独占队列
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 
         // 消息内容
